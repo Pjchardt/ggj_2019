@@ -4,38 +4,50 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SteamVR_TrackedObject))]
+[RequireComponent(typeof(TargetingLineRendering))]
 public class SimpleInteract : MonoBehaviour
 {
     public LayerMask DynamicLayerMask;
     public SphereCollider OverlapCollider;
     public Rigidbody AttachPoint;
 
+    bool isTargeting;
+    float timeTriggerDown;
     DynamicObject hoverObject;
     SteamVR_TrackedObject trackedObj;
     FixedJoint joint;
+    TargetingLineRendering targeting;
 
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
+        targeting = GetComponent<TargetingLineRendering>();
     }
 
-    void FixedUpdate ()
+    void FixedUpdate()
     {
-        var device = SteamVR_Controller.Input((int)trackedObj.index);
+        SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackedObj.index);
+        CheckGrabbing(device);
+        CheckTargeting(device);
+    }
+
+    void CheckGrabbing(SteamVR_Controller.Device device)
+    {
         if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
             if (hoverObject != null)
             {
-                //hoverObject.transform.position = AttachPoint.transform.position;
+                hoverObject.OnGrab(this);
                 joint = hoverObject.gameObject.AddComponent<FixedJoint>();
                 joint.connectedBody = AttachPoint;
             }
         }
         else if (joint != null && device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
+
             Object.DestroyImmediate(joint);
             joint = null;
-            
+
             // We should probably apply the offset between trackedObj.transform.position
             // and device.transform.pos to insert into the physics sim at the correct
             // location, however, we would then want to predict ahead the visual representation
@@ -54,8 +66,63 @@ public class SimpleInteract : MonoBehaviour
             }
 
             hoverObject.Rb.maxAngularVelocity = hoverObject.Rb.angularVelocity.magnitude;
-            hoverObject.OnHoverExit();
+            hoverObject.OnDrop();
         }
+    }
+
+    void CheckTargeting(SteamVR_Controller.Device device)
+    {
+        if (joint != null) { return; }
+
+        if (!isTargeting)
+        {
+            if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
+            {
+                timeTriggerDown = Time.timeSinceLevelLoad;
+            }
+            else if (device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
+            {
+                if (timeTriggerDown + 1f > Time.timeSinceLevelLoad)
+                {
+                    isTargeting = true;
+                }
+            }
+        }
+
+        if (isTargeting)
+        {
+            if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
+            {
+                if (hoverObject != null)
+                {
+                    AudioManager.Instance.PlayWhistle(transform.position);
+                    hoverObject.OnWhistle(transform);
+                    hoverObject = null;
+                }
+
+                isTargeting = false;
+                return;
+            }
+
+            RaycastHit hit = new RaycastHit();
+            if (targeting.UpdateLine(transform.forward, ref hit))
+            {
+                DynamicObject d = hit.collider.attachedRigidbody.GetComponent<DynamicObject>();
+                if (hoverObject != null && hoverObject != d) { hoverObject.OnHoverExit(); }
+                else if (hoverObject == null)
+                {
+                    hoverObject = d;
+                    hoverObject.OnHoverEnter();
+                }
+            }
+            else if (hoverObject != null)
+            {
+                hoverObject.OnHoverExit();
+                hoverObject = null;
+            }
+        }
+
+        targeting.SetLineEnabled(isTargeting);
     }
 
     public void TriggerEnter(Collider c)
@@ -77,5 +144,11 @@ public class SimpleInteract : MonoBehaviour
             hoverObject.OnHoverExit();
             hoverObject = null;
         }
+    }
+
+    public void ForceDrop ()
+    {
+        Object.DestroyImmediate(joint);
+        joint = null;
     }
 }
