@@ -19,13 +19,30 @@ public class Hub : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        Instance = this;  
+    }
 
-        for (int i = 0; i < Rooms.Length; i++)
+    private void Start()
+    {
+        Begin();
+    }
+
+    void Begin()
+    {
+        /*for (int i = 0; i < Rooms.Length; i++)
         {
             Rooms[i].TotemRooom.SetActive(false);
             if (i > 0) { Rooms[i].Room.gameObject.SetActive(false); }
-        }
+        }*/
+
+        StartNextRoom();
+    }
+
+    void StartNextRoom()
+    {
+        AudioManager.Instance.NewChapter(chapter);
+        //Rooms[chapter].Room.gameObject.SetActive(true);
+        Rooms[chapter].Room.RoomEntered();
     }
 
     public void RoomLeft ()
@@ -34,8 +51,7 @@ public class Hub : MonoBehaviour
         chapter++;
         if (chapter < Rooms.Length)
         {
-            AudioManager.Instance.NewChapter(chapter);
-            Rooms[chapter].Room.gameObject.SetActive(true);
+            StartNextRoom();
         }
         else
         {

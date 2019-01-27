@@ -1,47 +1,55 @@
 fileFormatVersion: 2
-guid: 71e247a24677a2b4eb38976bac0bc09e
+guid: d425111829de50c4187cb988258a7ea4
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Untitled_12_DoubleTaperedMarker_geo
-    100004: Untitled_12_Marker_geo
-    100006: Untitled_12_MatteHull_geo
-    100008: Untitled_12_OilPaint_geo
-    100010: Untitled_12_Petal_geo
-    100012: Untitled_12_TaperedMarker_geo
-    100014: Untitled_12_ThickPaint_geo
+    100002: Untitled_9_OilPaint_geo
+    100004: Untitled_9_TaperedMarker_geo
+    100006: Untitled_9_ThickPaint_geo
+    100008: Untitled_9_Wire_geo
     400000: //RootNode
-    400002: Untitled_12_DoubleTaperedMarker_geo
-    400004: Untitled_12_Marker_geo
-    400006: Untitled_12_MatteHull_geo
-    400008: Untitled_12_OilPaint_geo
-    400010: Untitled_12_Petal_geo
-    400012: Untitled_12_TaperedMarker_geo
-    400014: Untitled_12_ThickPaint_geo
-    2300000: Untitled_12_DoubleTaperedMarker_geo
-    2300002: Untitled_12_Marker_geo
-    2300004: Untitled_12_MatteHull_geo
-    2300006: Untitled_12_OilPaint_geo
-    2300008: Untitled_12_Petal_geo
-    2300010: Untitled_12_TaperedMarker_geo
-    2300012: Untitled_12_ThickPaint_geo
-    3300000: Untitled_12_DoubleTaperedMarker_geo
-    3300002: Untitled_12_Marker_geo
-    3300004: Untitled_12_MatteHull_geo
-    3300006: Untitled_12_OilPaint_geo
-    3300008: Untitled_12_Petal_geo
-    3300010: Untitled_12_TaperedMarker_geo
-    3300012: Untitled_12_ThickPaint_geo
-    4300000: Untitled_12_Marker_geo
-    4300002: Untitled_12_TaperedMarker_geo
-    4300004: Untitled_12_MatteHull_geo
-    4300006: Untitled_12_Petal_geo
-    4300008: Untitled_12_OilPaint_geo
-    4300010: Untitled_12_DoubleTaperedMarker_geo
-    4300012: Untitled_12_ThickPaint_geo
-    2186277476908879412: ImportLogs
-  externalObjects: {}
+    400002: Untitled_9_OilPaint_geo
+    400004: Untitled_9_TaperedMarker_geo
+    400006: Untitled_9_ThickPaint_geo
+    400008: Untitled_9_Wire_geo
+    2100000: 4391385acf8343969e3331e4e4930b27_Wire
+    2100002: 75b32cf0fdd64d89a64be2a00b247b0f_ThickPaint
+    2100004: f72ec0e7a8444e3882e3140c44772699_OilPaint
+    2100006: d90c6ad8af0f4b54b422e0f92abe1b3c_TaperedMarker
+    2300000: Untitled_9_OilPaint_geo
+    2300002: Untitled_9_TaperedMarker_geo
+    2300004: Untitled_9_ThickPaint_geo
+    2300006: Untitled_9_Wire_geo
+    3300000: Untitled_9_OilPaint_geo
+    3300002: Untitled_9_TaperedMarker_geo
+    3300004: Untitled_9_ThickPaint_geo
+    3300006: Untitled_9_Wire_geo
+    4300000: Untitled_9_Wire_geo
+    4300002: Untitled_9_ThickPaint_geo
+    4300004: Untitled_9_OilPaint_geo
+    4300006: Untitled_9_TaperedMarker_geo
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 4391385acf8343969e3331e4e4930b27_Wire
+    second: {fileID: 2100000, guid: f72ec0e7a8444e3882e3140c44772699, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 75b32cf0fdd64d89a64be2a00b247b0f_ThickPaint
+    second: {fileID: 2100000, guid: d90c6ad8af0f4b54b422e0f92abe1b3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: d90c6ad8af0f4b54b422e0f92abe1b3c_TaperedMarker
+    second: {fileID: 2100000, guid: 75b32cf0fdd64d89a64be2a00b247b0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: f72ec0e7a8444e3882e3140c44772699_OilPaint
+    second: {fileID: 2100000, guid: 4391385acf8343969e3331e4e4930b27, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -73,7 +81,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 2
+    meshCompression: 0
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
@@ -82,7 +90,7 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 0
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0

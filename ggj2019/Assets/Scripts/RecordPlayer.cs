@@ -22,16 +22,16 @@ public class RecordPlayer : RoomHook
         connectedRecord.transform.rotation = targetTransform.rotation;
         connectedRecord.GetComponent<Rigidbody>().isKinematic = true;
 
-        aL.PlayClip();
-        //StartCoroutine(SpinWhilePlaying());
+        //AudioSource aS = aL.PlayClip();
+        StartCoroutine(SpinWhilePlaying());
     }
 
-    /*IEnumerator SpinWhilePlaying()
+    IEnumerator SpinWhilePlaying()
     {
-        while (aS.isPlaying)
+        while (true/*aS != null && aS.isPlaying*/)
         {
             connectedRecord.transform.Rotate(0f, Time.deltaTime* 45f, 0f);
             yield return new WaitForEndOfFrame();
         }
-    }*/
+    }
 }

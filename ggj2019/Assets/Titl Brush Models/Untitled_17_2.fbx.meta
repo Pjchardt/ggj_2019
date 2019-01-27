@@ -1,47 +1,29 @@
 fileFormatVersion: 2
-guid: 71e247a24677a2b4eb38976bac0bc09e
+guid: 7c18a31bc4b07344997115ff3ebfef0a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Untitled_12_DoubleTaperedMarker_geo
-    100004: Untitled_12_Marker_geo
-    100006: Untitled_12_MatteHull_geo
-    100008: Untitled_12_OilPaint_geo
-    100010: Untitled_12_Petal_geo
-    100012: Untitled_12_TaperedMarker_geo
-    100014: Untitled_12_ThickPaint_geo
+    100002: Untitled_17_2_Flat_geo
+    100004: Untitled_17_2_Paper_geo
     400000: //RootNode
-    400002: Untitled_12_DoubleTaperedMarker_geo
-    400004: Untitled_12_Marker_geo
-    400006: Untitled_12_MatteHull_geo
-    400008: Untitled_12_OilPaint_geo
-    400010: Untitled_12_Petal_geo
-    400012: Untitled_12_TaperedMarker_geo
-    400014: Untitled_12_ThickPaint_geo
-    2300000: Untitled_12_DoubleTaperedMarker_geo
-    2300002: Untitled_12_Marker_geo
-    2300004: Untitled_12_MatteHull_geo
-    2300006: Untitled_12_OilPaint_geo
-    2300008: Untitled_12_Petal_geo
-    2300010: Untitled_12_TaperedMarker_geo
-    2300012: Untitled_12_ThickPaint_geo
-    3300000: Untitled_12_DoubleTaperedMarker_geo
-    3300002: Untitled_12_Marker_geo
-    3300004: Untitled_12_MatteHull_geo
-    3300006: Untitled_12_OilPaint_geo
-    3300008: Untitled_12_Petal_geo
-    3300010: Untitled_12_TaperedMarker_geo
-    3300012: Untitled_12_ThickPaint_geo
-    4300000: Untitled_12_Marker_geo
-    4300002: Untitled_12_TaperedMarker_geo
-    4300004: Untitled_12_MatteHull_geo
-    4300006: Untitled_12_Petal_geo
-    4300008: Untitled_12_OilPaint_geo
-    4300010: Untitled_12_DoubleTaperedMarker_geo
-    4300012: Untitled_12_ThickPaint_geo
-    2186277476908879412: ImportLogs
-  externalObjects: {}
+    400002: Untitled_17_2_Flat_geo
+    400004: Untitled_17_2_Paper_geo
+    2100000: 2d35bcf0e4d8452c97b13311be063130_Flat1
+    2300000: Untitled_17_2_Flat_geo
+    2300002: Untitled_17_2_Paper_geo
+    2300004: //RootNode
+    3300000: Untitled_17_2_Flat_geo
+    3300002: Untitled_17_2_Paper_geo
+    3300004: //RootNode
+    4300000: Untitled_17_2_Paper_geo
+    4300002: Untitled_17_2_Flat_geo
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2d35bcf0e4d8452c97b13311be063130_Flat1
+    second: {fileID: 2100000, guid: 429ed64a4e97446684d3145a861ef684, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -73,7 +55,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 2
+    meshCompression: 0
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
@@ -91,7 +73,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:

@@ -49,7 +49,7 @@ public class RoomObject : MonoBehaviour
                 else
                 {
                     Vector3 dir = startPosition - transform.position;
-                    dynamicRef.Rb.AddForce(dir.normalized * 2f);
+                    dynamicRef.Rb.AddForce(dir.normalized * 4f);
                 }
                 break;
         }
@@ -98,7 +98,7 @@ public class RoomObject : MonoBehaviour
     {
         while (currentState == ObjectState.Wander)
         {
-            dynamicRef.Rb.AddForce(Random.insideUnitSphere * 4f);
+            dynamicRef.Rb.AddForce(Random.insideUnitSphere * 8f);
             dynamicRef.Rb.AddTorque(Random.insideUnitSphere * .1f);
             yield return new WaitForSeconds(Random.Range(1f, 5f));
         }
