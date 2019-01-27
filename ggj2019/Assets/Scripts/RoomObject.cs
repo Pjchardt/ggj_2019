@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RoomObject : MonoBehaviour
 {
     public enum ObjectState { Wander, Return }
     ObjectState currentState;
+
+    public UnityEvent eventToCall;
 
     public Room RoomIn;
     public string ObjectKey;
@@ -84,6 +87,9 @@ public class RoomObject : MonoBehaviour
     {
         RoomIn.RoomObjectHooked();
         gameObject.layer = LayerMask.NameToLayer("Default");
+
+        if (eventToCall != null) { eventToCall.Invoke(); }
+
         Destroy(dynamicRef);
         Destroy(this);
     }

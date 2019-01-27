@@ -14,5 +14,6 @@ public class PlayerTrigger : MonoBehaviour
         if (isTriggered) { return; }
 
         eventToCall.Invoke();
+        isTriggered = true;
     }
 }

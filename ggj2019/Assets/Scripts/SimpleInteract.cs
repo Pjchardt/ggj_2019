@@ -48,6 +48,8 @@ public class SimpleInteract : MonoBehaviour
             Object.DestroyImmediate(joint);
             joint = null;
 
+            if (hoverObject == null) { return; }
+
             // We should probably apply the offset between trackedObj.transform.position
             // and device.transform.pos to insert into the physics sim at the correct
             // location, however, we would then want to predict ahead the visual representation
