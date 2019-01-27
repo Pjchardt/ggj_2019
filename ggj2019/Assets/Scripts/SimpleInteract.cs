@@ -105,7 +105,7 @@ public class SimpleInteract : MonoBehaviour
             }
 
             RaycastHit hit = new RaycastHit();
-            if (targeting.UpdateLine(transform.forward, ref hit))
+            if (targeting.UpdateLine(new Ray(transform.position, transform.forward), ref hit))
             {
                 DynamicObject d = hit.collider.attachedRigidbody.GetComponent<DynamicObject>();
                 if (hoverObject != null && hoverObject != d) { hoverObject.OnHoverExit(); }

@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public AudioClip[] Whistles;
+    public AudioSource Music;
 
     private void Awake()
     {
@@ -21,5 +22,10 @@ public class AudioManager : MonoBehaviour
         aS.spatialBlend = 1f;
         aS.PlayOneShot(Whistles[Random.Range(0, Whistles.Length)]);
         Destroy(obj, 3f);
+    }
+
+    public void NewChapter(int i)
+    {
+        Music.volume += .1f;
     }
 }

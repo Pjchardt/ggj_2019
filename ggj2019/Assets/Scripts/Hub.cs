@@ -13,23 +13,40 @@ public class Hub : MonoBehaviour
 {
     public static Hub Instance;
 
-    public List<RoomData> Rooms;
+    public RoomData [] Rooms;
+
+    int chapter = 0;
 
     private void Awake()
     {
         Instance = this;
 
-        foreach (RoomData rD in Rooms)
+        for (int i = 0; i < Rooms.Length; i++)
         {
-            rD.TotemRooom.SetActive(false);
+            Rooms[i].TotemRooom.SetActive(false);
+            if (i > 0) { Rooms[i].Room.gameObject.SetActive(false); }
         }
     }
 
-    public void RoomCompleted (Room r)
+    public void RoomLeft ()
+    {
+        //new chapter
+        chapter++;
+        if (chapter < Rooms.Length)
+        {
+            AudioManager.Instance.NewChapter(chapter);
+            Rooms[chapter].Room.gameObject.SetActive(true);
+        }
+        else
+        {
+            EndGame();
+        }
+    }
+
+    public void RoomComplete(Room r)
     {
         RoomData rD = FindRoomData(r);
         rD.TotemRooom.SetActive(true);
-        Rooms.Remove(rD);
         CheckCompleted();
     }
 
@@ -49,9 +66,11 @@ public class Hub : MonoBehaviour
 
     void CheckCompleted()
     {
-        if (Rooms.Count < 1)
-        {
-            //do end game
-        }
+        //would need bool to check each room for completion, but what for?
+    }
+
+    void EndGame()
+    {
+
     }
 }

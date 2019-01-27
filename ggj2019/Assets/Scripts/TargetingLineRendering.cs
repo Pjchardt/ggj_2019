@@ -25,10 +25,10 @@ public class TargetingLineRendering : MonoBehaviour
         l.enabled = isEnabled;
     }
 
-    public bool UpdateLine(Vector3 pos, ref RaycastHit hit)
+    public bool UpdateLine(Ray r, ref RaycastHit hit)
     {
         bool foundTarget = false;
-        targetPosition = pos * MaxLineDistance;
+        targetPosition = r.origin + r.direction * MaxLineDistance;
         currentPosition = Vector3.Lerp(currentPosition, targetPosition, .2f);
 
         Vector3 controllerToObject = currentPosition - transform.position;
@@ -37,7 +37,7 @@ public class TargetingLineRendering : MonoBehaviour
 
         Vector3 raycastPosition;
         Vector3 raycastDirection;
-        for (int i = 1; i < numRayCasts; i++)
+        for (int i = 0; i < numRayCasts; i++)
         {
             raycastPosition = GetPoint(l.transform.position, controlPoint, currentPosition, i / (float)(numRayCasts - 1));
             raycastDirection = currentPosition - raycastPosition;

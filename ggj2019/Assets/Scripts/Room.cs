@@ -12,10 +12,16 @@ public class Room : MonoBehaviour
 	public void RoomObjectHooked()
     {
         roomObjectsHooked++;
-
-        if (roomObjectsHooked >= RoomObjectsNeeded)
+    
+        /*if (roomObjectsHooked >= RoomObjectsNeeded)
         {
             Hub.Instance.RoomCompleted(this);
-        }
+        }*/
+    }
+
+    public void LeavingRoom()
+    {
+        //do end of room stuff
+        Hub.Instance.RoomLeft();
     }
 }

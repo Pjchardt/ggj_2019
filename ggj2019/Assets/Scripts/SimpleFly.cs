@@ -19,7 +19,7 @@ public class SimpleFly : MonoBehaviour
         var device = SteamVR_Controller.Input((int)trackedObj.index);
         if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
         {
-            SimplePlayer.Instance.transform.position += trackedObj.transform.forward * Speed;
+            SimplePlayer.Instance.transform.position += Vector3.Scale(trackedObj.transform.forward, new Vector3(1f, 0f, 1f)) * Speed;
         }
     }
     

@@ -13,7 +13,7 @@ public class RoomHook : MonoBehaviour
     protected Rigidbody rb;
     protected FixedJoint joint;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -67,7 +67,7 @@ public class RoomHook : MonoBehaviour
             else
             {
                 Vector3 dir = targetTransform.position - targetObject.transform.position;
-                targetObject.MoveTowardsHook(dir.normalized * .25f);
+                targetObject.MoveTowardsHook(dir.normalized);
             }
             
 

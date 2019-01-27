@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - VRController
+  - Player
   - DynamicObject
-  - 
+  - PlayerTrigger
   - 
   - 
   - 
