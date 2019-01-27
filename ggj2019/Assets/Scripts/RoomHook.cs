@@ -7,12 +7,13 @@ public class RoomHook : MonoBehaviour
 {
     public string ObjectKey;
     public LayerMask ObjectsMask;
+    public Transform targetTransform;
 
-    RoomObject targetObject;
-    Rigidbody rb;
-    FixedJoint joint;
+    protected RoomObject targetObject;
+    protected Rigidbody rb;
+    protected FixedJoint joint;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -44,23 +45,29 @@ public class RoomHook : MonoBehaviour
         }
     }
 
+    protected virtual void ObjectAttached()
+    {
+        GameObject obj = targetObject.gameObject;
+        targetObject.ConnectedToHook();
+        targetObject = null;
+        obj.transform.position = targetTransform.position;
+        obj.transform.rotation = targetTransform.rotation;
+        joint = obj.AddComponent<FixedJoint>();
+        joint.connectedBody = rb;
+    }
+
     IEnumerator TrackObject()
     {
         while(targetObject != null)
         {
-            if (Vector3.Distance(transform.position, targetObject.transform.position) < .25f)
+            if (Vector3.Distance(targetTransform.position, targetObject.transform.position) < .25f)
             {
-                GameObject obj = targetObject.gameObject;
-                targetObject.ConnectedToHook();
-                obj.transform.position = transform.position;
-                obj.transform.rotation = transform.rotation;
-                joint = obj.AddComponent<FixedJoint>();
-                joint.connectedBody = rb;
+                ObjectAttached();
             }
             else
             {
-                Vector3 dir = transform.position - targetObject.transform.position;
-                targetObject.MoveTowardsHook(dir.normalized * .25f);
+                Vector3 dir = targetTransform.position - targetObject.transform.position;
+                targetObject.MoveTowardsHook(dir.normalized);
             }
             
 

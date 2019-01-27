@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class RoomObject : MonoBehaviour
 {
-    public enum ObjectState { Wander, Return, Wistle }
+    public enum ObjectState { Wander, Return }
     ObjectState currentState;
 
     public Room RoomIn;
     public string ObjectKey;
 
     Vector3 startPosition;
-    Transform whistleTarget;
+    //Transform whistleTarget;
     DynamicObject dynamicRef;
 
     private void Awake()
@@ -27,7 +27,8 @@ public class RoomObject : MonoBehaviour
 
     private void FixedUpdate()
     {
-        dynamicRef.Rb.velocity = (dynamicRef.Rb.velocity.magnitude > 1) ? dynamicRef.Rb.velocity.normalized * 1f : dynamicRef.Rb.velocity;
+        //dynamicRef.Rb.velocity = (dynamicRef.Rb.velocity.magnitude > 1) ? dynamicRef.Rb.velocity.normalized * 1f : dynamicRef.Rb.velocity;
+        dynamicRef.Rb.velocity *= .995f;
 
         switch (currentState)
         {
@@ -45,18 +46,7 @@ public class RoomObject : MonoBehaviour
                 else
                 {
                     Vector3 dir = startPosition - transform.position;
-                    dynamicRef.Rb.velocity = dir.normalized * .25f;
-                }
-                break;
-            case ObjectState.Wistle:
-                if (Vector3.Distance(transform.position, whistleTarget.position) < .15)
-                {
-                    StopWistle();
-                }
-                else
-                {
-                    Vector3 targetDir = whistleTarget.position - transform.position;
-                    dynamicRef.Rb.velocity = targetDir.normalized * 2f;
+                    dynamicRef.Rb.AddForce(dir.normalized * 2f);
                 }
                 break;
         }
@@ -73,7 +63,7 @@ public class RoomObject : MonoBehaviour
         currentState = ObjectState.Return;
     }
 
-    public void DoWistle(Transform target)
+    /*public void DoWistle(Transform target)
     {
         currentState = ObjectState.Wistle;
         whistleTarget = target;
@@ -83,7 +73,7 @@ public class RoomObject : MonoBehaviour
     {
         whistleTarget = null;
         StartWander();
-    }
+    }*/
 
     public void MoveTowardsHook(Vector3 dir)
     {
@@ -93,6 +83,7 @@ public class RoomObject : MonoBehaviour
     public void ConnectedToHook()
     {
         RoomIn.RoomObjectHooked();
+        gameObject.layer = LayerMask.NameToLayer("Default");
         Destroy(dynamicRef);
         Destroy(this);
     }
@@ -101,7 +92,8 @@ public class RoomObject : MonoBehaviour
     {
         while (currentState == ObjectState.Wander)
         {
-            dynamicRef.Rb.AddForce(Random.insideUnitSphere);
+            dynamicRef.Rb.AddForce(Random.insideUnitSphere * 4f);
+            dynamicRef.Rb.AddTorque(Random.insideUnitSphere * .1f);
             yield return new WaitForSeconds(Random.Range(1f, 5f));
         }
         

@@ -7,9 +7,7 @@ public class AudioLogManager : MonoBehaviour
     public static AudioLogManager Instance;
 
     [HideInInspector]
-    public AudioLog CurrentLogPlaying;
-
-    public AudioSource Source;
+    public AudioSource CurrentSource;
 
     private void Awake()
     {
@@ -18,29 +16,45 @@ public class AudioLogManager : MonoBehaviour
 
     private void Update()
     {
-        if (CurrentLogPlaying != null && !Source.isPlaying)
+        if (CurrentSource != null && !CurrentSource.isPlaying)
         {
-            CurrentLogPlaying = null;
+            Destroy(CurrentSource);
+            CurrentSource = null;
         }
     }
 
     //do we want to cross fade? or just not allow interuption
-    public bool PlayLog(AudioLog a)
+    public void PlayLog(AudioLog a)
     {
-        if (CurrentLogPlaying != null) { return false;}
+        AudioSource aS = gameObject.AddComponent<AudioSource>();
+        aS.spatialBlend = 0f;
+        aS.clip = a.Log;
+        aS.Play();
 
-        CurrentLogPlaying = a;
-        Source.clip = a.Log;
-        Source.Play();
-        return true;
+        if (CurrentSource != null)
+        {
+            StartCoroutine(CrossFade(aS));
+        }
+        else
+        {
+            CurrentSource = aS;
+        }
     }
 
-    public bool StopLog(AudioLog a)
+    IEnumerator CrossFade (AudioSource newLog)
     {
-        if (CurrentLogPlaying == null || CurrentLogPlaying != a) { return false; }
+        float timeElapsed = 0f;
+        
+        while (timeElapsed < 1)
+        {
+            timeElapsed += Time.deltaTime * .2f;
+            CurrentSource.volume = Mathf.Lerp(1f, 0f, timeElapsed);
+            newLog.volume = Mathf.Lerp(0f, 1f, timeElapsed);
+            yield return new WaitForEndOfFrame();
+        }
 
-        Source.Stop();
-        CurrentLogPlaying = null;
-        return true;
+        Destroy(CurrentSource);
+        CurrentSource = newLog;
+        newLog.volume = 1f;
     }
 }

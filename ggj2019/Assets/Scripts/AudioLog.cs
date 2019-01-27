@@ -8,7 +8,7 @@ public class AudioLog : MonoBehaviour
 
     public void PlayClip()
     {
-        AudioLogManager.Instance.PlayLog(this); //check if failed and keep trying?
+        AudioLogManager.Instance.PlayLog(this); 
     }
 
     public void StopClip()
