@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class RoomData
@@ -13,6 +14,7 @@ public class Hub : MonoBehaviour
 {
     public static Hub Instance;
 
+    public UnityEvent beginEvents;
     public RoomData [] Rooms;
 
     int chapter = 0;
@@ -29,11 +31,7 @@ public class Hub : MonoBehaviour
 
     void Begin()
     {
-        /*for (int i = 0; i < Rooms.Length; i++)
-        {
-            Rooms[i].TotemRooom.SetActive(false);
-            if (i > 0) { Rooms[i].Room.gameObject.SetActive(false); }
-        }*/
+        if (beginEvents != null) { beginEvents.Invoke(); }
 
         StartNextRoom();
     }

@@ -18,9 +18,9 @@ public class RecordPlayer : RoomHook
         connectedRecord = targetObject.gameObject;
         targetObject.ConnectedToHook();
         targetObject = null;
+        connectedRecord.GetComponent<Rigidbody>().isKinematic = true;
         connectedRecord.transform.position = targetTransform.position;
         connectedRecord.transform.rotation = targetTransform.rotation;
-        connectedRecord.GetComponent<Rigidbody>().isKinematic = true;
 
         //AudioSource aS = aL.PlayClip();
         StartCoroutine(SpinWhilePlaying());

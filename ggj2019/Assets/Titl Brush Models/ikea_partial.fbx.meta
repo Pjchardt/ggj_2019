@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: 1ccc4354deff21e478e1674889ccf800
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Untitled_16_4_DuctTape_geo
+    100004: Untitled_16_4_Flat_geo
+    100006: Untitled_16_4_Highlighter_geo
+    100008: Untitled_16_4_Paper_geo
+    100010: Untitled_16_4_Wire_geo
+    400000: //RootNode
+    400002: Untitled_16_4_DuctTape_geo
+    400004: Untitled_16_4_Flat_geo
+    400006: Untitled_16_4_Highlighter_geo
+    400008: Untitled_16_4_Paper_geo
+    400010: Untitled_16_4_Wire_geo
+    2100000: f1114e2eeb8d4fde915a6e653b54e9f5_Paper4
+    2100002: d0262945853c44819cbd88586bed93cb_DuctTape1
+    2100004: 4391385acf8343969e3331e4e4930b27_Wire6
+    2100006: 2d35bcf0e4d8452c97b13311be063130_Flat5
+    2100008: cf019139d41c4eb0a1d05cf54b0a42f3_Highlighter1
+    2300000: Untitled_16_4_DuctTape_geo
+    2300002: Untitled_16_4_Flat_geo
+    2300004: Untitled_16_4_Highlighter_geo
+    2300006: Untitled_16_4_Paper_geo
+    2300008: Untitled_16_4_Wire_geo
+    3300000: Untitled_16_4_DuctTape_geo
+    3300002: Untitled_16_4_Flat_geo
+    3300004: Untitled_16_4_Highlighter_geo
+    3300006: Untitled_16_4_Paper_geo
+    3300008: Untitled_16_4_Wire_geo
+    4300000: Untitled_16_4_Paper_geo
+    4300002: Untitled_16_4_DuctTape_geo
+    4300004: Untitled_16_4_Wire_geo
+    4300006: Untitled_16_4_Flat_geo
+    4300008: Untitled_16_4_Highlighter_geo
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2d35bcf0e4d8452c97b13311be063130_Flat5
+    second: {fileID: 2100000, guid: 2d35bcf0e4d8452c97b13311be063130, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 4391385acf8343969e3331e4e4930b27_Wire6
+    second: {fileID: 2100000, guid: 4391385acf8343969e3331e4e4930b27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cf019139d41c4eb0a1d05cf54b0a42f3_Highlighter1
+    second: {fileID: 2100000, guid: cf019139d41c4eb0a1d05cf54b0a42f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: d0262945853c44819cbd88586bed93cb_DuctTape1
+    second: {fileID: 2100000, guid: d0262945853c44819cbd88586bed93cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: f1114e2eeb8d4fde915a6e653b54e9f5_Paper4
+    second: {fileID: 2100000, guid: f1114e2eeb8d4fde915a6e653b54e9f5, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 2
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
